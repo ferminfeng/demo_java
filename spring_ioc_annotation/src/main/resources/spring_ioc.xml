@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        @Controller 用来标记在我们控制层的类，注册为Bean组件
+        @Service 标记在业务逻辑层的类，注册为Bean组件
+        @Repository 标记在数据访问层的类，注册为Bean组件
+        @Component 标记非三层的普通的类，注册为Bean组件
+
+        不是每个非要每个层对应响应的注解
+            1.增强可读性
+            2.利于spring管理
+    -->
+    <!--        <bean class="cn.fermin.controller.UserController" id="userController"></bean>-->
+
+    <!--    扫描包
+            base-package 设置需要扫描的包
+                排除扫描 <context:exclude-filter 设置需要排除扫描的选项
+                包含扫描 <context:include-filter 设置需要包含扫描的选项
+                type
+                    1.annotation 默认 根据注解的完整限定名设置排除/包含
+                    2.assignable 根据类的完整限定名设置排除/包含
+                    3.
+                    4.
+                    5.
+    -->
+
+    <!--扫描所有注解-->
+    <context:component-scan base-package="cn.fermin"/>
+
+    <!-- 排除controller层注解-->
+    <!--    <context:component-scan base-package="cn.fermin">-->
+    <!--                <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    <!--    </context:component-scan>-->
+
+    <!-- 包含controller层注解-->
+    <!--    <context:component-scan base-package="cn.fermin" use-default-filters="false">-->
+    <!--        <context:include-filter type="assignable" expression="cn.fermin.controller.UserController"/>-->
+    <!--    </context:component-scan>-->
+
+    <!--引入外部属性资源文件  可以通过@Value来获取里面的key值-->
+    <context:property-placeholder location="db.properties"></context:property-placeholder>
+</beans>

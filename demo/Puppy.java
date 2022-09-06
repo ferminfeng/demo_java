@@ -1,0 +1,25 @@
+public class Puppy {
+    int puppyAge;
+
+    public Puppy(String name) {
+        System.out.println("小狗的名字叫：" + name);
+    }
+
+    public void setAge(int age) {
+        puppyAge = age;
+    }
+
+    public int getAge() {
+        System.out.println("getAge:小狗的年龄：" + puppyAge);
+        return puppyAge;
+    }
+
+    public static void main(String[] args) {
+        Puppy myPuppy = new Puppy("小王");
+
+        myPuppy.setAge(3);
+        int age = myPuppy.getAge();
+        System.out.println("main:小狗的年龄：" + age);
+        System.out.println("main:小狗的年龄：" + myPuppy.puppyAge);
+    }
+}

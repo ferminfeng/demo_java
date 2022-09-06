@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        默认是先加载xml,xml里按照顺序依次加载
+        depends-on  依赖某个类，所以会先加载depends-on里的类
+     -->
+<!--    <bean class="cn.fermin.beans.User" id="user" depends-on="wife"></bean>-->
+<!--    <bean class="cn.fermin.beans.Wife" id="wife"></bean>-->
+
+    <!--    懒加载   lazy-init = true 在使用的时候再加载相关的类-->
+<!--    <bean class="cn.fermin.beans.Wife" id="wife" lazy-init="true"></bean>-->
+
+<!-- 作用域scope
+    默认值 singleton  单例，同一个id始终只会创建一次bean
+    prototype 多例，用一次创建一次
+-->
+    <bean class="cn.fermin.beans.Person" id="person" scope="prototype">
+
+    </bean>
+
+</beans>
